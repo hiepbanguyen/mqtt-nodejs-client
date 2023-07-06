@@ -1,0 +1,13 @@
+{
+  "name": "mqtt_be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mqtt": "^4.3.7",
+    "typescript": "^5.1.6"
+  },
+  "scripts": {
+    "start": "npx tsc && node index.js"
+  }
+}
