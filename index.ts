@@ -44,23 +44,20 @@ function generateDataPointModelPayload(): DataPointModel {
 client.on('connect', () => {
   console.log('Connected')
 
-  client.subscribe(topics, () => {
-    console.log(`Subscribe to topic '${topics}'`)
-    setInterval(() => {
-      client.publish(topics[0], JSON.stringify(generateDeviceModelPayload()), { qos: 0, retain: false }, (error) => {
-        if (error) {
-          console.error(error)
-        }
-      })  
-    }, 1000);
+  setInterval(() => {
+    client.publish(topics[0], JSON.stringify(generateDeviceModelPayload()), { qos: 0, retain: false }, (error) => {
+      if (error) {
+        console.error(error)
+      }
+    })  
+  }, 1000);
 
-    setInterval(() => {
-      client.publish(topics[1], JSON.stringify(generateDataPointModelPayload()), { qos: 0, retain: false }, (error) => {
-        if (error) {
-          console.error(error)
-        }
-      })  
-    }, 1000);
+  setInterval(() => {
+    client.publish(topics[1], JSON.stringify(generateDataPointModelPayload()), { qos: 0, retain: false }, (error) => {
+      if (error) {
+        console.error(error)
+      }
+    })  
+  }, 1000);
 
-  })
 });
